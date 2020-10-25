@@ -3,7 +3,6 @@ const express = require("express");
 const cookieParser = require('cookie-parser')
 const PORT = process.env.PORT || 8080;
 const app = express();
-
 const db = require("./models");
 // sets up handlebars
 
@@ -31,8 +30,11 @@ app.use(express.json());
 
 // Routes
 // =============================================================
-require("./routes/html-routes.js")(app);
-require("./routes/flowers-api-routes.js")(app);
+const flowerRoutes = require('./routes/flowers-api-routes');
+const htmlRoutes = require("./routes/html-routes");
+
+app.use("/", htmlRoutes);
+app.use("/api", flowerRoutes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -42,6 +44,6 @@ db.sequelize.sync({
   force: false
 }).then(function () {
   app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT http://localhost:" + PORT);
   });
 });
