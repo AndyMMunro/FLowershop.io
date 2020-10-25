@@ -1,0 +1,33 @@
+{{!--  * Setup the `index.handlebars` to have the template that Handlebars can render onto.
+    * Create a button in `index.handlebars` that will submit the user input into the database.
+--}}
+
+{{!-- Page content --}}
+
+<main id="main">
+
+  <div class="container">
+    <div class="row">
+      {{!-- Form for user to add new dish reviews --}}
+      {{!-- Populate this html when button is clicked --}}
+      {{!-- {{> newDishForm }} --}}
+      {{!-- <div class="col-md-8 col-sm-8"></div>
+      <button class="col-md-2 col-sm-4 btn btn-dark addReviewBtn" type="button" id="">Add Review</button>
+      <div class="col-md-2"></div> --}}
+
+
+      <!-- By default, show 10 restaurants nearby based on user geolocation -->
+      {{!-- {{> restaurantInfo }} --}}
+      <main id="restaurantList" class="col-12">
+
+        <h2>Flowers</h2>
+        <hr>
+
+        {{> Flowers }}
+
+      </main>
+
+    </div>
+  </div>
+
+</main>
